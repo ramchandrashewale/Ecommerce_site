@@ -1,0 +1,65 @@
+.header{
+    background-color:#131921;
+    display :flex;
+    align-items:center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &_logo{
+        width: 100px; 
+        object-fit:contain; 
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-top: 18px;
+ 
+     }
+    &_nav{
+         display: flex;
+         justify-content:space-evenly;
+    }
+    &_option{
+        display: flex;
+        flex-direction:column;
+         margin-left: 10px;
+         margin-right: 10px;
+    
+        &LineOne{
+            font-size: 10px;
+         }
+        &LineTwo{
+            font-size: 13px;
+            font-weight: 800;
+        }
+        &Basket{
+            display:flex;
+            align-items:center;
+        }
+    }
+    &_link{
+        color: white;
+        text-decoration: none;
+    }
+
+    &_search{
+        display: flex;
+        flex: 1;  
+    
+            &Input{
+                height:18px;
+                padding:  15px;
+                border: none;
+                width:100%;
+            }
+            &Icon{
+                background-color: #cd9042;
+                padding: 1px;
+                height:30px !important;
+            }
+    }
+    
+    &_basketCount{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

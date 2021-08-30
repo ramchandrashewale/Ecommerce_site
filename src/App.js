@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Home from './components/Home';
+import Footer from './components/Footer';
+import Checkout from './components/Checkout';
+import { useIsAuthenticated } from "@azure/msal-react";
+import {SignInButton}  from "./components/SignInButton";
+import { SignOutButton } from './components/SignOutButton';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  
+} from "react-router-dom";
+
+
+
 
 function App() {
+  const isAuthenticated = useIsAuthenticated();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    isAuthenticated ? 
+      <Router>
+        <div className="app">
+        <Switch>
+          <Route path="/checkout">
+            <Header/>
+            <Checkout/>
+          </Route>
+          
+          {/*This is degfault route*/ }
+          <Route path="/">
+            <Header/>
+            <Home/>
+            <Footer/>
+            
+            
+          </Route>
+        </Switch>
+        </div>
+      </Router>
+      : <SignInButton />
+
+    
   );
 }
 
